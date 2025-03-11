@@ -1,0 +1,65 @@
+[
+  {
+    "id": 2,
+    "name": "Aviator Sunglasses",
+    "price": 1499,
+    "category": "sunglasses",
+    "image": "/images/aviator_sunglasses.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Reading Glasses",
+    "price": 799,
+    "category": "glasses",
+    "image": "/images/reading_glasses.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Stylish Glasses",
+    "price": 1299,
+    "category": "glasses",
+    "image": "/images/stylish_glasses.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Stylish Glasses",
+    "price": 1299,
+    "category": "glasses",
+    "image": "/images/stylish_glasses.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Stylish Glasses",
+    "price": 1299,
+    "category": "glasses",
+    "image": "/images/stylish_glasses.jpg"
+  },
+  {
+    "id": 6,
+    "name": "New Glasses",
+    "price": 1999,
+    "category": "glasses",
+    "image": "/images/new_glasses.jpg"
+  },
+  {
+    "id": 7,
+    "name": "New Glasses",
+    "price": 1999,
+    "category": "glasses",
+    "image": "/images/new_glasses.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Premium Glasses",
+    "price": 2499,
+    "category": "glasses",
+    "image": "/images/premium_glasses.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Basic Glasses",
+    "price": 999,
+    "category": "glasses",
+    "image": "/images/basic_glasses.jpg"
+  }
+]
