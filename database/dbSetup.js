@@ -30,7 +30,8 @@ const createProductsTableQuery = `
         name VARCHAR(255) NOT NULL,
         price DECIMAL(10,2) NOT NULL,
         category VARCHAR(100) NOT NULL,
-        image TEXT NOT NULL
+        image TEXT NOT NULL,
+		stock INT DEFAULT 100
     );
 `;
 
@@ -41,6 +42,42 @@ const createUsersTableQuery = `
         email VARCHAR(255) UNIQUE NOT NULL,
         password TEXT NOT NULL,
         role VARCHAR(50) DEFAULT 'user'
+    );
+`;
+
+const createCartTableQuery = `
+    CREATE TABLE IF NOT EXISTS cart (
+        id SERIAL PRIMARY KEY,
+        user_id INT NOT NULL,
+        product_id INT NOT NULL,
+        quantity INT DEFAULT 1 CHECK (quantity > 0),
+        added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+        FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+    );
+`;
+
+const createOrdersTableQuery = `
+    CREATE TABLE IF NOT EXISTS orders (
+        id SERIAL PRIMARY KEY,
+        user_id INT NOT NULL,
+        order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        total_price DECIMAL(10,2) NOT NULL,
+        status VARCHAR(50) DEFAULT 'Pending',
+		last_updated TIMESTAMP DEFAULT NOW(),
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    );
+`;
+
+const createOrderItemsTableQuery = `
+    CREATE TABLE IF NOT EXISTS order_items (
+        id SERIAL PRIMARY KEY,
+        order_id INT NOT NULL,
+        product_id INT NOT NULL,
+        quantity INT NOT NULL,
+        price DECIMAL(10,2) NOT NULL,
+        FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+        FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
     );
 `;
 
@@ -71,6 +108,15 @@ async function setupDatabase() {
         
         await dbClient.query(createUsersTableQuery);
         console.log("✅ Users table is ready.");
+        
+        await dbClient.query(createCartTableQuery);
+        console.log("✅ Cart table is ready.");
+        
+        await dbClient.query(createOrdersTableQuery);
+        console.log("✅ Orders table is ready.");
+        
+        await dbClient.query(createOrderItemsTableQuery);
+        console.log("✅ Order Items table is ready.");
 
         await dbClient.end();
         console.log("🎉 Database setup complete.");
