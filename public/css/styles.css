@@ -1,0 +1,189 @@
+/* General Styles */  
+:root {  
+    --primary-color: #007bff; /* Blue */  
+    --glass-light-blue: rgba(173, 216, 230, 0.6); /* Light Blue with transparency */  
+    --shiny-soft-blue: rgba(135, 206, 250, 0.8); /* Soft Blue with appearance of shine */  
+    --accent-color: #ffcc00; /* Yellow */  
+    --text-color-skin: #f1c6b1; /* Skin Tone Color */  
+    --bg-dark: #343a40; /* Dark Background */  
+    --text-dark: #333; /* Dark text color */  
+    --hover-color: #f1c6b1 /* Hover Effect Color */  
+}  
+
+body {  
+    font-family: 'Inter', Arial, sans-serif;  
+    line-height: 1.6;  
+    color: var(--text-dark);  
+}  
+
+/* Navbar Styling */  
+.navbar {  
+    background: linear-gradient(135deg, var(--primary-color), var(--glass-light-blue));  
+    padding: 15px;  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    transition: all 0.3s ease-in-out;  
+}  
+
+.navbar-brand img {  
+    transition: transform 0.3s ease-in-out;  
+}  
+
+.navbar-brand img:hover {  
+    transform: scale(1.1) rotate(5deg);  
+}  
+
+.nav-link {  
+    color: var(--text-light) !important;  
+    position: relative;  
+	transition: color 0.3s ease-in-out, letter-spacing 0.3s ease-in-out, text-underline-offset 0.3s ease-in-out;
+    text-decoration: none;
+}  
+
+.nav-link:hover {  
+    color: var(--accent-color) !important;  
+    text-decoration: underline;
+    text-underline-offset: 5px; /* Adjust space between text and underline */
+    letter-spacing: 2px; /* Spread out letters */
+}  
+
+/* Search Bar */  
+form.d-flex input {  
+    border-radius: 25px;  
+    padding: 10px 15px;  
+    border: 2px solid var(--primary-color);  
+    transition: all 0.3s ease;  
+}  
+
+form.d-flex input:focus {  
+    outline: none;  
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);  
+}  
+
+form.d-flex button {  
+    border-radius: 25px;  
+    background-color: var(--primary-color);  
+    color: var(--text-light);  
+    transition: all 0.3s ease-in-out;  
+}  
+
+form.d-flex button:hover {  
+    background-color: var(--accent-color);  
+    color: black;  
+    transform: scale(1.05) translateY(-2px);  
+}  
+
+/* Hero Section */  
+.hero {  
+    background:   
+        linear-gradient(135deg, var(--primary-color), var(--glass-light-blue)),  
+        url('/images/hero-bg.jpg') no-repeat center center/cover;  
+    padding: 120px 0;  
+    color: var(--text-light);  
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);  
+    animation: fadeIn 1.5s ease-in-out;  
+}  
+
+/* Feature Sections */  
+.section {  
+    padding: 60px 0;  
+    position: relative;  
+    background: linear-gradient(135deg, var(--primary-color), var(--glass-light-blue)); /* Same gradient as navbar */  
+}  
+
+/* Border decoration for sections */  
+.section::after {  
+    content: "";  
+    position: absolute;  
+    top: -10px;  
+    left: 0;  
+    width: 100%;  
+    height: 10px;  
+    background: var(--accent-color);  
+    opacity: 0.5;  
+}  
+
+
+
+/* Interactive Elements */  
+button, .btn {  
+    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);  
+}  
+
+button:hover, .btn:hover {  
+    transform: scale(1.1); /* Enlarge the button */  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);  
+} 
+
+.btn-outline-success {
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 0px;
+    padding: 8px 20px;
+    border: 2px solid var(--accent-color); /* Accent-colored border */
+    color: var(--primary-color);
+}
+
+.btn-outline-success:hover {
+    transform: scale(1.1);
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--primary-color), var(--glass-light-blue)); /* Gradient on hover */
+    color: white;
+    border-color: var(--primary-color); /* Slight contrast effect */
+}
+
+ 
+
+/* Spread the button text */  
+button span {  
+    display: inline-block;  
+    transition: letter-spacing 0.3s ease; /* Animate letter-spacing */  
+}  
+
+button:hover span {  
+    letter-spacing: 2px; /* Increase spacing between letters */  
+}  
+
+/* Change button text color and background */  
+form.d-flex button:hover {  
+    background-color: #0056b3; /* Darken primary color */  
+    color: #fff; /* Ensure text is white */  
+}  
+
+/* Heading Styling */  
+h2, h4 {  
+    color: var(--text-color-skin); /* Use skin tone for text */  
+    transition: all 0.3s ease-in-out;  
+	padding-bottom:30px;
+}  
+
+h2:hover {  
+    color: var(--primary-color);  
+    transform: translateX(10px);  
+    text-shadow: 0 0 5px var(--accent-color);  
+}  
+
+/* Container Styling */  
+.container {  
+    padding: 45px 30px;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+	display:border-box;
+	justify-content:center;
+}  
+
+/* Footer */  
+footer {  
+    background-color: var(--bg-dark);  
+    color: var(--text-light);  
+}  
+
+/* Animations */  
+@keyframes fadeIn {  
+    from {   
+        opacity: 0;   
+        transform: translateY(20px);  
+    }  
+    to {   
+        opacity: 1;   
+        transform: translateY(0);  
+    }  
+}  
