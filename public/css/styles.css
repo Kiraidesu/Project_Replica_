@@ -87,7 +87,7 @@ form.d-flex button:hover {
 .section {  
     padding: 60px 0;  
     position: relative;  
-    background: linear-gradient(135deg, var(--primary-color), var(--glass-light-blue)); /* Same gradient as navbar */  
+    background: linear-gradient(135deg, var(--primary-color), var(--glass-light-blue)) !important ; /* Same gradient as navbar */  
 }  
 
 /* Border decoration for sections */  
@@ -107,12 +107,21 @@ form.d-flex button:hover {
 /* Interactive Elements */  
 button, .btn {  
     transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);  
+    background: linear-gradient(135deg, var(--primary-color), var(--glass-light-blue));  
+    border-radius: 12px; /* Rounded borders */  
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Light border for glass effect */  
+    backdrop-filter: blur(10px); /* Blurry glass effect */  
+    padding: 10px 20px;  
+    color: white; /* Ensuring text stands out */  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }  
 
 button:hover, .btn:hover {  
-    transform: scale(1.1); /* Enlarge the button */  
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);  
-} 
+    transform: scale(1.1);  
+    background: linear-gradient(135deg, var(--glass-light-blue), var(--primary-color)); /* Reverse gradient on hover */  
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow effect */  
+}
+ 
 
 .btn-outline-success {
     transition: all 0.3s ease-in-out;
@@ -129,6 +138,79 @@ button:hover, .btn:hover {
     color: white;
     border-color: var(--primary-color); /* Slight contrast effect */
 }
+
+.container.my-5{
+	background:;
+}
+
+.row.text-center {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch; /* Ensure all items stretch to the same height */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Make all boxes equal in size */
+.row.text-center .col-md-4 {
+    max-width: 30%;
+    min-width: 100px;
+    text-align: center;
+    display: flex;
+	align-items:center;
+    flex-direction: column; /* Ensures all content is stacked */
+    justify-content: space-between; /* Spreads content inside evenly */
+    height: 280px; /* Fixed height for equal box sizing */
+	
+}
+
+/* Feature Box Structure */
+.col-md-4 {
+    border: 2px solid var(--text-color-skin);
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.4s ease-in-out;
+    background-color: var(--light-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Ensure all text is aligned and does not push the box height */
+.col-md-4 h4 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    flex-grow: 1; /* Less weight */
+}
+
+.col-md-4 p {
+    font-size: 0.9rem;
+    flex-grow: 1; /* Less weight */
+}
+
+/* Hover Effects */
+.col-md-4:hover {
+    transform: scale(1.05);
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Size Fix */
+.col-md-4 img {
+    width: 80px; /* Increase image size */
+    height: 80px;
+    object-fit: contain;
+    flex-grow: 3; /* Gives more weight to the image */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Animation */
+.col-md-4:hover img {
+    transform: scale(1.1);
+}
+
+
 
  
 
