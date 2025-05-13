@@ -32,7 +32,8 @@ app.use(express.json());
 //
 app.use("/users", userRoutes);
 
-app.use("/cart",cartRoutes);
+
+app.use("/api/cart",cartRoutes);
 
 app.use("/orders", orderRoutes);
 
@@ -76,33 +77,10 @@ app.get("/edit-profile", (req, res) => {
 app.get("/cart", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "cart.html"));
 });
-
 // nav bar handling
 app.get("/js/navbar.js", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "js", "navbar.js"));
 });
-
-// getting products from database
-app.get('/api/products', async (req, res) => {
-    try {
-        const products = await db.query('SELECT * FROM products');
-        res.json(products.rows);
-    } catch (err) {
-        console.error('Error fetching products:', err);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-
-app.get("/api/cart", authenticateToken, async (req, res) => {
-    try {
-        const cart = await pool.query("SELECT * FROM cart WHERE user_id = $1", [req.user.id]);
-        res.json({ cart: cart.rows });
-    } catch (error) {
-        console.error("Error fetching cart:", error);
-        res.status(500).json({ error: "Internal Server Error" });
-    }
-});
-
 
 
 app.get("/users/me", authenticateToken, async (req, res) => {
